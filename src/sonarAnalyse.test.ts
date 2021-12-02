@@ -1,4 +1,4 @@
-const myData = require('./data.ts');
+const myData = require('./sonar-data.ts');
 
 console.log(myData.length);
 
