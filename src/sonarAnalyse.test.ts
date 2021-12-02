@@ -1,15 +1,15 @@
-const myData = require('./sonar-data.ts');
+const sonarData = require('./sonar-data.ts');
 
-console.log(myData.length);
+console.log(sonarData.length);
 
 console.log(
   'number of increased from array : ' +
-  getNumberOfIncreasedFromSimpleArrayOfNumber(myData)
+  getNumberOfIncreasedFromSimpleArrayOfNumber(sonarData)
 );
 
 console.log(
   'number of increased from deep array : ' +
-  getNumberOfIncreasedFromDeepArrayOfNumber(myData)
+  getNumberOfIncreasedFromDeepArrayOfNumber(sonarData)
 );
 function compareNumber(first: number, second: number): string {
   if (first < second) {
