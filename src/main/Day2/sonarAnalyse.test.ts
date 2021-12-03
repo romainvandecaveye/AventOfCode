@@ -1,5 +1,4 @@
-import * as sonar  from "../Day1/sonar";
-
+import * as sonar from '../Day1/sonar';
 
 describe('analyse number', () => {
   it('should return "increased" when the first number is lower than the second', () => {
@@ -63,33 +62,38 @@ describe('analyse deep array', () => {
 describe('counting array', () => {
   it('should count 1 "increased" when analysing an array of 2 ascending numbers', () => {
     const ascendingArray = [1, 2];
-    const actual = sonar.getNumberOfIncreasedFromSimpleArrayOfNumber(ascendingArray);
+    const actual =
+      sonar.getNumberOfIncreasedFromSimpleArrayOfNumber(ascendingArray);
     const expected = 1;
     expect(actual).toStrictEqual(expected);
   });
   it('should count 2 "increased" when analysing an array of 3 ascending numbers', () => {
     const ascendingArray = [1, 2, 3];
-    const actual = sonar.getNumberOfIncreasedFromSimpleArrayOfNumber(ascendingArray);
+    const actual =
+      sonar.getNumberOfIncreasedFromSimpleArrayOfNumber(ascendingArray);
     const expected = 2;
     expect(actual).toStrictEqual(expected);
   });
   it('should count 3 "increased" when analysing an array of 3 ascending numbers with 2 descending number', () => {
     const ascendingArray = [1, 2, 1, 2, 1, 2];
-    const actual = sonar.getNumberOfIncreasedFromSimpleArrayOfNumber(ascendingArray);
+    const actual =
+      sonar.getNumberOfIncreasedFromSimpleArrayOfNumber(ascendingArray);
     const expected = 3;
     expect(actual).toStrictEqual(expected);
   });
 
   it('should count 7 "increased" when analyzing the array from the site', () => {
     const exempleArray = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
-    const actual = sonar.getNumberOfIncreasedFromSimpleArrayOfNumber(exempleArray);
+    const actual =
+      sonar.getNumberOfIncreasedFromSimpleArrayOfNumber(exempleArray);
     const expected = 7;
     expect(actual).toStrictEqual(expected);
   });
 
   it('should count 5 "increased" when deep analyzing the array from the site', () => {
     const exempleArray = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
-    const actual = sonar.getNumberOfIncreasedFromDeepArrayOfNumber(exempleArray);
+    const actual =
+      sonar.getNumberOfIncreasedFromDeepArrayOfNumber(exempleArray);
     const expected = 5;
     expect(actual).toStrictEqual(expected);
   });

@@ -1,6 +1,8 @@
-export class Coordinates {
+export default class Coordinates {
   horizontal: number;
+
   depth: number;
+
   aim: number;
 
   constructor(horizontal: number, depth: number, aim: number) {

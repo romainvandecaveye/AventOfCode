@@ -1,8 +1,8 @@
-import { Coordinates } from './Coordinates';
-import { Order } from './Order';
+import Coordinates from './Coordinates';
+import Order from './Order';
 
 export function dive(orderStr: string): Coordinates {
-  let order = new Order(orderStr);
+  const order = new Order(orderStr);
   switch (order.direction) {
     case 'forward': {
       return new Coordinates(order.unit, 0, 0);
@@ -20,10 +20,10 @@ export function dive(orderStr: string): Coordinates {
 }
 
 export function diveFrom(orderStr: string, position: Coordinates): Coordinates {
-  let delta = dive(orderStr);
-  let depth = position.depth + position.aim * delta.horizontal;
-  let horizontal = position.horizontal + delta.horizontal;
-  let aim = position.aim + delta.aim;
+  const delta = dive(orderStr);
+  const depth = position.depth + position.aim * delta.horizontal;
+  const horizontal = position.horizontal + delta.horizontal;
+  const aim = position.aim + delta.aim;
   return new Coordinates(horizontal, depth, aim);
 }
 
