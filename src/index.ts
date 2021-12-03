@@ -1,7 +1,9 @@
 import sonarData from './Day1/sonar-data';
 import diveData from './Day2/dive-data';
+import powerConsumptionData from './Day3/powerconsumption-data';
 import * as day1 from './Day1/sonar';
 import * as day2 from './Day2/dive';
+import * as day3 from './Day3/diag';
 
 console.log(
   `Day1-step1 : ${day1.getNumberOfIncreasedFromSimpleArrayOfNumber(sonarData)}`
@@ -14,3 +16,11 @@ console.log(
 console.log(`Day2-step1 : ${day2.getFinalPositionAfterDive(diveData)}`);
 
 console.log(`Day2-step2 : ${day2.getFinalPositionAfterDiveWithAim(diveData)}`);
+
+console.log(
+  `Day3-step1 : ${day3.calculatePowerConsumption(powerConsumptionData)}`
+);
+
+console.log(
+  `Day3-step2 : ${day3.calculateLifeSupportRating(powerConsumptionData)}`
+);

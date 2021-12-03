@@ -1,5 +1,5 @@
-import Coordinates from '../Day2/Coordinates';
-import * as day2 from '../Day2/dive';
+import Coordinates from './Coordinates';
+import * as day2 from './dive';
 
 describe('simple dive', () => {
   it('should return [1,0] when it is forward 1', () => {

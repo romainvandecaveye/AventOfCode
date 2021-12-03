@@ -48,9 +48,9 @@ export function diveFromArray(orders: string[]): Coordinates {
 
 export function diveFromArrayWithAim(orders: string[]): Coordinates {
   let position = new Coordinates(0, 0, 0);
-  for (let i = 0; i < orders.length; i++) {
-    position = diveWithAimFrom(orders[i], position);
-  }
+  orders.forEach((item) => {
+    position = diveWithAimFrom(item, position);
+  });
   return position;
 }
 
