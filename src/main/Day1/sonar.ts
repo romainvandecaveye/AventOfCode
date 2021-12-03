@@ -21,7 +21,7 @@ export function analyseDeepArray(arrayOfNumber: number[]): string[] {
   let curr = 0;
   let prev = 0;
   for (let i = 0; i < arrayOfNumber.length - 2; i++) {
-    if (i == 0) {
+    if (i === 0) {
       result.push('N/A - no previous sum');
       prev = arrayOfNumber[i] + arrayOfNumber[i + 1] + arrayOfNumber[i + 2];
     } else {
