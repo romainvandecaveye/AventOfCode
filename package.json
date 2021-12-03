@@ -8,23 +8,29 @@
     "start:dev": "nodemon",
     "test": "jest --watch",
     "test:coverage": "jest --coverage --watch",
+    "test:mutator": "npx stryker run",
     "build": "rimraf ./build && tsc",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "prettier-watch": "onchange 'src/**/*.ts' -- prettier --write {{changed}}"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' 'tests/**/*.ts' --write",
+    "prettier-watch": "onchange 'src/**/*.ts' 'tests/**/*.ts' -- prettier --write {{changed}}"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@stryker-mutator/core": "^5.5.1",
+    "@stryker-mutator/jest-runner": "^5.5.1",
+    "@stryker-mutator/typescript-checker": "^5.5.1",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.10",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^8.3.0",
+    "eslint-config-airbnb": "^19.0.2",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
@@ -41,5 +47,8 @@
     "hooks": {
       "pre-commit": "npm run prettier-format && npm run lint"
     }
+  },
+  "dependencies": {
+    "eslint-plugin-jest": "^25.3.0"
   }
 }
