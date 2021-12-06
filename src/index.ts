@@ -74,13 +74,10 @@ console.log('{', endTimeDay4Step2, ' ms} Day4-step2 : ', day4step2);
 // console.log('{', endTimeDay5Step22, ' ms} Day5-step2', day5step2);
 
 startTime = new Date().getTime();
-const shoal = new Shoal(lanternFishData);
-shoal.liveDuring(80);
-const day6step1 = shoal.getNumberOfFish();
+const day6step1 = new Shoal(lanternFishData).getNumberOfFishAfter(80);
 const endTimeDay6Step1 = Math.round(new Date().getTime() - startTime);
 console.log('{', endTimeDay6Step1, ' ms} Day6-step1 : ', day6step1);
 
-shoal.liveDuring(256 - 80);
-const day6step2 = shoal.getNumberOfFish();
+const day6step2 = new Shoal(lanternFishData).getNumberOfFishAfter(256);
 const endTimeDay6Step2 = Math.round(new Date().getTime() - startTime);
 console.log('{', endTimeDay6Step2, ' ms} Day6-step1 : ', day6step2);
