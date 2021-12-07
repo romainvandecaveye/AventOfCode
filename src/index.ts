@@ -9,6 +9,8 @@ import * as day2 from './Day2/dive';
 import * as day3 from './Day3/diag';
 import * as day4 from './Day4/bingo';
 import { getNumberOfFishAfter } from './Day6/shoal';
+import { calculateFuel, calculateFuelCrab } from './Day7/calculateFuel';
+import crabsData from './Day7/crabs.data';
 
 function logTimestamptedResult(day: number, step: number, methodCall: number) {
   const startTime = new Date().getTime();
@@ -41,3 +43,5 @@ logTimestamptedResult(4, 1, day4.whoWinSooner(boards, draws).calculatePower());
 logTimestamptedResult(4, 2, day4.whoWinLast(boards, draws).calculatePower());
 logTimestamptedResult(6, 1, getNumberOfFishAfter(lanternFishData, 80));
 logTimestamptedResult(6, 2, getNumberOfFishAfter(lanternFishData, 256));
+logTimestamptedResult(7, 1, calculateFuel(crabsData));
+logTimestamptedResult(7, 2, calculateFuelCrab(crabsData));
