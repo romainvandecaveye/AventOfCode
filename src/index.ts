@@ -3,15 +3,12 @@ import diveData from './Day2/dive-data';
 import powerConsumptionData from './Day3/powerconsumption-data';
 import boards from './Day4/boards-data';
 import draws from './Day4/bingo-data';
-import venturesData from './Day5/ventures-data';
 import lanternFishData from './Day6/lanternFish-data';
 import * as day1 from './Day1/sonar';
 import * as day2 from './Day2/dive';
 import * as day3 from './Day3/diag';
 import * as day4 from './Day4/bingo';
-import * as day5 from './Day5/hydrotermal-venture';
-import * as parser from './Day5/parser';
-import { Shoal } from './Day6/shoal';
+import { getNumberOfFishAfter } from './Day6/shoal';
 
 let startTime = new Date().getTime();
 const day1step1 = day1.getNumberOfIncreasedFromSimpleArrayOfNumber(sonarData);
@@ -74,10 +71,10 @@ console.log('{', endTimeDay4Step2, ' ms} Day4-step2 : ', day4step2);
 // console.log('{', endTimeDay5Step22, ' ms} Day5-step2', day5step2);
 
 startTime = new Date().getTime();
-const day6step1 = new Shoal(lanternFishData).getNumberOfFishAfter(80);
+const day6step1 = getNumberOfFishAfter(lanternFishData, 80);
 const endTimeDay6Step1 = Math.round(new Date().getTime() - startTime);
 console.log('{', endTimeDay6Step1, ' ms} Day6-step1 : ', day6step1);
 
-const day6step2 = new Shoal(lanternFishData).getNumberOfFishAfter(256);
+const day6step2 = getNumberOfFishAfter(lanternFishData, 256);
 const endTimeDay6Step2 = Math.round(new Date().getTime() - startTime);
 console.log('{', endTimeDay6Step2, ' ms} Day6-step1 : ', day6step2);

@@ -1,54 +1,33 @@
-const CYCLE_BEFORE_POP = 6;
-const INITIAL_CYCLE_BEFORE_POP = 8;
-
-function getNumberOfSonsFromCycleNumberDuring(
-  fishGestating: number,
+export function getNumberOfFishAfter(
+  data: number[],
   numberOfDays: number
-) {
-  if (fishGestating >= numberOfDays) {
-    return 0;
+): number {
+  const myMap = new Map<number, number>();
+  for (let i = 0; i <= 8; i += 1) {
+    myMap.set(i, 0);
   }
-  return Math.floor(numberOfDays / CYCLE_BEFORE_POP);
-}
+  data.forEach((fish) => {
+    myMap.set(fish, (myMap.get(fish) ?? 0) + 1);
+  });
 
-function createSons(
-  numberOfSons: number,
-  father: number,
-  numberOfDays: number
-): number[] {
-  const sons = [];
-  for (let i = 0; i < numberOfSons; i += 1) {
-    const futureSon =
-      INITIAL_CYCLE_BEFORE_POP + father + i * CYCLE_BEFORE_POP + (i + 1);
-    if (futureSon <= numberOfDays + INITIAL_CYCLE_BEFORE_POP) {
-      sons.push(futureSon);
+  for (let day = 1; day <= numberOfDays; day += 1) {
+    const numberOfFish = myMap.get(0) ?? 0;
+    for (let i = 0; i < 9; i += 1) {
+      if (i === 8) {
+        myMap.set(i, numberOfFish);
+      } else if (i === 6) {
+        const countFromBefore = myMap.get(i + 1) ?? 0;
+        myMap.set(i, countFromBefore + numberOfFish);
+      } else {
+        const countFromBefore = myMap.get(i + 1) ?? 0;
+        myMap.set(i, countFromBefore);
+      }
     }
   }
-  return sons;
-}
 
-function calculateNumberOfFish(shoal: number[], numberOfDays: number): number {
-  if (shoal.length === 0) {
-    return 0;
-  }
-  const fish = shoal[0];
-  const numberOfSons = getNumberOfSonsFromCycleNumberDuring(fish, numberOfDays);
-  const sons = createSons(numberOfSons, fish, numberOfDays);
-  return (
-    1 +
-    calculateNumberOfFish(sons, numberOfDays) +
-    calculateNumberOfFish(shoal.slice(1, shoal.length), numberOfDays)
-  );
-}
-
-export class Shoal {
-  shoal: number[];
-
-  constructor(numbers: number[]) {
-    this.shoal = numbers;
-  }
-
-  getNumberOfFishAfter(numberOfDays: number): number {
-    return calculateNumberOfFish(this.shoal, numberOfDays);
-  }
+  let total = 0;
+  myMap.forEach((value) => {
+    total += value;
+  });
+  return total;
 }
