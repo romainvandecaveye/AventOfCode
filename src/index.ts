@@ -4,6 +4,7 @@ import powerConsumptionData from './Day3/powerconsumption-data';
 import boards from './Day4/boards-data';
 import draws from './Day4/bingo-data';
 import lanternFishData from './Day6/lanternFish-data';
+import seventsegmentData from './Day8/sevent-segment-data';
 import * as day1 from './Day1/sonar';
 import * as day2 from './Day2/dive';
 import * as day3 from './Day3/diag';
@@ -11,6 +12,8 @@ import * as day4 from './Day4/bingo';
 import { getNumberOfFishAfter } from './Day6/shoal';
 import { calculateFuel, calculateFuelCrab } from './Day7/calculateFuel';
 import crabsData from './Day7/crabs.data';
+import * as decode from './Day8/decode';
+import { easyDigitPart1 } from './Day8/decode';
 
 function logTimestamptedResult(day: number, step: number, methodCall: number) {
   const startTime = new Date().getTime();
@@ -45,3 +48,5 @@ logTimestamptedResult(6, 1, getNumberOfFishAfter(lanternFishData, 80));
 logTimestamptedResult(6, 2, getNumberOfFishAfter(lanternFishData, 256));
 logTimestamptedResult(7, 1, calculateFuel(crabsData));
 logTimestamptedResult(7, 2, calculateFuelCrab(crabsData));
+logTimestamptedResult(8, 1, decode.easyDigitPart1(seventsegmentData));
+logTimestamptedResult(8, 2, decode.easyDigitPart2(seventsegmentData));
