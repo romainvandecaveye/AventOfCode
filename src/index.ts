@@ -5,6 +5,7 @@ import boards from './Day4/boards-data';
 import draws from './Day4/bingo-data';
 import lanternFishData from './Day6/lanternFish-data';
 import seventsegmentData from './Day8/sevent-segment-data';
+import smokeBasinData from './Day9/smokebasing-data';
 import * as day1 from './Day1/sonar';
 import * as day2 from './Day2/dive';
 import * as day3 from './Day3/diag';
@@ -13,7 +14,7 @@ import { getNumberOfFishAfter } from './Day6/shoal';
 import { calculateFuel, calculateFuelCrab } from './Day7/calculateFuel';
 import crabsData from './Day7/crabs.data';
 import * as decode from './Day8/decode';
-import { easyDigitPart1 } from './Day8/decode';
+import * as basin from './Day9/smokebassin';
 
 function logTimestamptedResult(day: number, step: number, methodCall: number) {
   const startTime = new Date().getTime();
@@ -50,3 +51,13 @@ logTimestamptedResult(7, 1, calculateFuel(crabsData));
 logTimestamptedResult(7, 2, calculateFuelCrab(crabsData));
 logTimestamptedResult(8, 1, decode.easyDigitPart1(seventsegmentData));
 logTimestamptedResult(8, 2, decode.easyDigitPart2(seventsegmentData));
+logTimestamptedResult(
+  9,
+  1,
+  basin.findLowestPoints(basin.parseLine(smokeBasinData)).getRiskLevel()
+);
+const basins = basin.findLowestBasin(basin.parseLine(smokeBasinData));
+basins.sort((a, b) => b.size() - a.size());
+const biggestBasins = [basins[0], basins[1], basins[2]];
+const actual = biggestBasins.reduce((prev, curr) => prev * curr.size(), 1);
+logTimestamptedResult(9, 2, actual);

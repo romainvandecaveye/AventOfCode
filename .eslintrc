@@ -18,6 +18,7 @@
     "plugin:import/typescript"
   ],
   "rules": {
+    "no-plusplus": "off",
     "prettier/prettier": "error",
     "import/extensions": [
       "error",
