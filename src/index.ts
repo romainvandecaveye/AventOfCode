@@ -6,6 +6,7 @@ import draws from './Day4/bingo-data';
 import lanternFishData from './Day6/lanternFish-data';
 import seventsegmentData from './Day8/sevent-segment-data';
 import smokeBasinData from './Day9/smokebasing-data';
+import syntaxData from './Day10/syntax-data';
 import * as day1 from './Day1/sonar';
 import * as day2 from './Day2/dive';
 import * as day3 from './Day3/diag';
@@ -15,6 +16,7 @@ import { calculateFuel, calculateFuelCrab } from './Day7/calculateFuel';
 import crabsData from './Day7/crabs.data';
 import * as decode from './Day8/decode';
 import * as basin from './Day9/smokebassin';
+import * as syntax from './Day10/syntax';
 
 function logTimestamptedResult(day: number, step: number, methodCall: number) {
   const startTime = new Date().getTime();
@@ -61,3 +63,14 @@ basins.sort((a, b) => b.size() - a.size());
 const biggestBasins = [basins[0], basins[1], basins[2]];
 const actual = biggestBasins.reduce((prev, curr) => prev * curr.size(), 1);
 logTimestamptedResult(9, 2, actual);
+
+logTimestamptedResult(
+  10,
+  1,
+  syntax.calculateScoreOfChunks(syntax.syntaxParseChunks(syntaxData))
+);
+logTimestamptedResult(
+  10,
+  2,
+  syntax.calculatePart2(syntax.syntaxParseChunks(syntaxData))
+);
