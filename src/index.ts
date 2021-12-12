@@ -8,6 +8,7 @@ import seventsegmentData from './Day8/sevent-segment-data';
 import smokeBasinData from './Day9/smokebasing-data';
 import syntaxData from './Day10/syntax-data';
 import octopusData from './Day11/octopus-data';
+import pathData from './Day12/paths-data';
 import * as day1 from './Day1/sonar';
 import * as day2 from './Day2/dive';
 import * as day3 from './Day3/diag';
@@ -19,7 +20,8 @@ import * as decode from './Day8/decode';
 import * as basin from './Day9/smokebassin';
 import * as syntax from './Day10/syntax';
 import * as octopus from './Day11/octopus';
-import { calculateNumberOfDays } from './Day11/octopus';
+import * as googlemaps from './Day12/mapper';
+import * as path from './Day12/path';
 
 function logTimestamptedResult(day: number, step: number, methodCall: number) {
   const startTime = new Date().getTime();
@@ -83,3 +85,15 @@ logTimestamptedResult(
   octopus.calculateNumberOfFlashes(octopusData, 100)
 );
 logTimestamptedResult(11, 2, octopus.calculateNumberOfDays(octopusData));
+
+logTimestamptedResult(
+  12,
+  1,
+  new googlemaps.Mapper(path.parsePath(pathData)).getNumberOfPaths()
+);
+
+logTimestamptedResult(
+  12,
+  2,
+  new googlemaps.Mapper(path.parsePath(pathData)).getNumberOfPathsWithTime()
+);
