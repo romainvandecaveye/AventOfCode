@@ -9,6 +9,8 @@ import smokeBasinData from './Day9/smokebasing-data';
 import syntaxData from './Day10/syntax-data';
 import octopusData from './Day11/octopus-data';
 import pathData from './Day12/paths-data';
+import coordinateData from './Day13/coordinates-data';
+import foldingData from './Day13/folding-data';
 import * as day1 from './Day1/sonar';
 import * as day2 from './Day2/dive';
 import * as day3 from './Day3/diag';
@@ -22,6 +24,7 @@ import * as syntax from './Day10/syntax';
 import * as octopus from './Day11/octopus';
 import * as googlemaps from './Day12/mapper';
 import * as path from './Day12/path';
+import * as origami from './Day13/origami';
 
 function logTimestamptedResult(day: number, step: number, methodCall: number) {
   const startTime = new Date().getTime();
@@ -96,4 +99,15 @@ logTimestamptedResult(
   12,
   2,
   new googlemaps.Mapper(path.parsePath(pathData)).getNumberOfPathsWithTime()
+);
+logTimestamptedResult(
+  13,
+  1,
+  origami.drawFoldOnceAndCount(coordinateData, foldingData)
+);
+
+logTimestamptedResult(
+  13,
+  2,
+  origami.drawFoldAllAndCount(coordinateData, foldingData)
 );
