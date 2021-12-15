@@ -11,6 +11,8 @@ import octopusData from './Day11/octopus-data';
 import pathData from './Day12/paths-data';
 import coordinateData from './Day13/coordinates-data';
 import foldingData from './Day13/folding-data';
+import templateData from './Day14/template.data';
+import insertionData from './Day14/insertion.data';
 import * as day1 from './Day1/sonar';
 import * as day2 from './Day2/dive';
 import * as day3 from './Day3/diag';
@@ -25,6 +27,7 @@ import * as octopus from './Day11/octopus';
 import * as googlemaps from './Day12/mapper';
 import * as path from './Day12/path';
 import * as origami from './Day13/origami';
+import { calculatePolymerScore } from './Day14/polymer';
 
 function logTimestamptedResult(day: number, step: number, methodCall: number) {
   const startTime = new Date().getTime();
@@ -110,4 +113,14 @@ logTimestamptedResult(
   13,
   2,
   origami.drawFoldAllAndCount(coordinateData, foldingData)
+);
+logTimestamptedResult(
+  14,
+  1,
+  calculatePolymerScore(templateData, insertionData, 10)
+);
+logTimestamptedResult(
+  14,
+  2,
+  calculatePolymerScore(templateData, insertionData, 40)
 );
