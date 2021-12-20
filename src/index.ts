@@ -84,12 +84,4 @@ function logResult(day: number, step: number, methodCall: any) {
 // logResult(13, 2, origami.drawFoldAllAndCount(coordinateData, foldingData));
 // logResult(14, 1, calculatePolymerScore(templateData, insertionData, 10));
 // logResult(14, 2, calculatePolymerScore(templateData, insertionData, 40));
-const testData =
-  '1163732\n' +
-  '1381332\n' +
-  '2136536\n' +
-  '3694938\n' +
-  '3694932\n' +
-  '3694932\n' +
-  '2311932';
-logResult(15, 1, getPath(testData));
+// logResult(15, 1, getPath(testData));
